@@ -1,4 +1,8 @@
+import Link from "next/link";
+
 export default function Page() {
+  const build = process.env.NEXT_PUBLIC_BUILD ?? "local";
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
@@ -15,13 +19,13 @@ export default function Page() {
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            {/* لینک واقعی به صفحه درخواست */}
-            <a
+            {/* CTA → صفحه واقعی */}
+            <Link
               href="/request"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
             >
               Request Early Access
-            </a>
+            </Link>
             <span className="text-sm text-slate-500">Pilot access prioritized for BC contractors.</span>
           </div>
         </div>
@@ -33,12 +37,12 @@ export default function Page() {
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             Permitting in Canada Is Fragmented, Slow, and Unpredictable
           </h2>
-          <p className="mt-4 max-w-3xl text-slate-700">
+        <p className="mt-4 max-w-3xl text-slate-700">
             Each municipality has its own rules, forms, and approval logic — with no unified infrastructure. Contractors are forced to
             navigate inconsistent requirements, unclear documentation, and manual workflows that waste time and create bottlenecks.
           </p>
 
-          <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2" role="list">
             {[
               "Every city = a different process",
               "No standardization or visibility",
@@ -47,7 +51,7 @@ export default function Page() {
               "Homeowners left confused and dependent",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-900/5">
-                <span className="mt-1 h-2 w-2 rounded-full bg-slate-900"></span>
+                <span aria-hidden className="mt-1 h-2 w-2 rounded-full bg-slate-900" />
                 <span className="text-slate-700">{item}</span>
               </li>
             ))}
@@ -98,7 +102,8 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">AI That Doesn’t Just Advise — It Executes</h3>
           <p className="mt-4 max-w-3xl text-slate-700">
-            Our intelligence layer learns municipal rules, interprets requirements, and prevents rejections before they happen — improving with every permit outcome. This isn’t a chatbot; it’s applied intelligence and institutional memory.
+            Our intelligence layer learns municipal rules, interprets requirements, and prevents rejections before they happen — improving with every permit outcome.
+            This isn’t a chatbot; it’s applied intelligence and institutional memory.
           </p>
         </div>
       </section>
@@ -148,23 +153,30 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">Expansion Strategy</h3>
           <ol className="mt-6 list-decimal pl-6 text-slate-700 space-y-2">
-            <li><span className="font-medium">BC First (Residential):</span> capture demand and learn deeply at the municipal level.</li>
-            <li><span className="font-medium">Canada Next:</span> standardize multi-city rule logic and compound the data moat.</li>
-            <li><span className="font-medium">Commercial Future:</span> extend workflows for high-value projects.</li>
+            <li>
+              <span className="font-medium">BC First (Residential):</span> capture demand and learn deeply at the municipal level.
+            </li>
+            <li>
+              <span className="font-medium">Canada Next:</span> standardize multi-city rule logic and compound the data moat.
+            </li>
+            <li>
+              <span className="font-medium">Commercial Future:</span> extend workflows for high-value projects.
+            </li>
           </ol>
         </div>
       </section>
 
-      {/* CTAs */}
-      <section id="request">
+      {/* CTA STRIP */}
+      <section aria-labelledby="cta" className="border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+          <h3 id="cta" className="sr-only">Call to action</h3>
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <a
+            <Link
               href="/apply"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
             >
               Apply for Pilot Access
-            </a>
+            </Link>
             <span className="text-sm text-slate-500">Early contractors get prioritized onboarding in BC.</span>
           </div>
         </div>
@@ -174,11 +186,11 @@ export default function Page() {
       <footer className="border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-500">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} PermitWave — v{process.env.NEXT_PUBLIC_BUILD ?? "local"}</p>
+            <p>© {new Date().getFullYear()} PermitWave — v{build}</p>
             <div className="flex gap-4">
-              <a href="/apply" className="hover:underline">Pilot Access</a>
-              <a href="#" className="hover:underline">Privacy</a>
-              <a href="#" className="hover:underline">Terms</a>
+              <Link href="/apply" className="hover:underline">Pilot Access</Link>
+              <Link href="#" className="hover:underline">Privacy</Link>
+              <Link href="#" className="hover:underline">Terms</Link>
             </div>
           </div>
         </div>
