@@ -1,3 +1,13 @@
+// ==============================
+// PermitWave – Landing Page (Next.js / App Router)
+// Copy each block to its own file as indicated by the path header.
+// I included build-version + fixed CTAs + working /apply and /request pages
+// + cache headers to avoid seeing the old version.
+// ==============================
+
+// ┌────────────────────────────────────────────────────┐
+// │ File: app/page.tsx                                 │
+// └────────────────────────────────────────────────────┘
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -13,8 +23,9 @@ export default function Page() {
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            {/* ✅ FIX: Link to a real page instead of an anchor */}
             <a
-              href="#request"
+              href="/request"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
             >
               Request Early Access
@@ -136,8 +147,9 @@ export default function Page() {
       <section id="request">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            {/* ✅ FIX: Link to a real page instead of a dead anchor */}
             <a
-              href="#apply"
+              href="/apply"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
             >
               Apply for Pilot Access
@@ -151,9 +163,10 @@ export default function Page() {
       <footer className="border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-500">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} PermitWave. All rights reserved.</p>
+            {/* 🔢 Build version helper (set NEXT_PUBLIC_BUILD in Cloudflare Pages) */}
+            <p>© {new Date().getFullYear()} PermitWave — v{process.env.NEXT_PUBLIC_BUILD ?? "local"}</p>
             <div className="flex gap-4">
-              <a href="#apply" className="hover:underline">Pilot Access</a>
+              <a href="/apply" className="hover:underline">Pilot Access</a>
               <a href="#" className="hover:underline">Privacy</a>
               <a href="#" className="hover:underline">Terms</a>
             </div>
@@ -163,3 +176,51 @@ export default function Page() {
     </main>
   );
 }
+
+// ┌────────────────────────────────────────────────────┐
+// │ File: app/apply/page.tsx                           │
+// └────────────────────────────────────────────────────┘
+export function Apply() {
+  return (
+    <main className="min-h-screen bg-white text-slate-900 p-8">
+      <h1 className="text-3xl font-bold">Apply for Pilot Access</h1>
+      <p className="mt-2 text-slate-600">Early contractors in BC are prioritized.</p>
+      <form className="mt-8 max-w-md space-y-4" action="https://formspree.io/f/XXXXXXX" method="POST">
+        <input name="name" placeholder="Full name" className="w-full rounded border p-3" required />
+        <input name="email" type="email" placeholder="Work email" className="w-full rounded border p-3" required />
+        <input name="company" placeholder="Company (optional)" className="w-full rounded border p-3" />
+        <textarea name="project" placeholder="Project details" className="w-full rounded border p-3 h-28" />
+        <button className="rounded-2xl px-6 py-3 font-semibold shadow ring-1 ring-slate-900/10">Submit</button>
+      </form>
+    </main>
+  );
+}
+
+// ┌────────────────────────────────────────────────────┐
+// │ File: app/request/page.tsx                         │
+// └────────────────────────────────────────────────────┘
+export function Request() {
+  return (
+    <main className="min-h-screen bg-white text-slate-900 p-8">
+      <h1 className="text-3xl font-bold">Request Early Access</h1>
+      <p className="mt-2 text-slate-600">We’re onboarding contractors in BC first.</p>
+      <form className="mt-8 max-w-md space-y-4" action="https://formspree.io/f/XXXXXXX" method="POST">
+        <input name="name" placeholder="Full name" className="w-full rounded border p-3" required />
+        <input name="email" type="email" placeholder="Work email" className="w-full rounded border p-3" required />
+        <input name="phone" placeholder="Phone (optional)" className="w-full rounded border p-3" />
+        <textarea name="notes" placeholder="What are you building?" className="w-full rounded border p-3 h-28" />
+        <button className="rounded-2xl px-6 py-3 font-semibold shadow ring-1 ring-slate-900/10">Submit</button>
+      </form>
+    </main>
+  );
+}
+
+// ┌────────────────────────────────────────────────────┐
+// │ File: _headers (in project root)                   │
+// └────────────────────────────────────────────────────┘
+// Prevent stale HTML from being cached; cache only static assets.
+/*
+  Cache-Control: no-store
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
