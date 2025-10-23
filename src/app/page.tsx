@@ -1,4 +1,4 @@
-// app/page.tsx
+// src/app/page.tsx
 import Link from "next/link";
 
 export default function Home() {
@@ -14,7 +14,12 @@ export default function Home() {
         </p>
         <div style={{display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap"}}>
           <Link href="/dashboard" style={btnPrimary}>Open Dashboard (Preview)</Link>
-          <a href="#contact" style={btnSecondary}>Request a Demo</a>
+          <a
+            href="mailto:support@permitwave.com?subject=Demo%20Request&body=Hi%20Permitwave%20Team%2C%0A%0AI%27d%20like%20a%20demo.%20Here%20are%20my%20details%3A%0A-%20Name%3A%0A-%20Company%3A%0A-%20City%3A%0A-%20Permit%20type(s)%3A%0A%0AThanks!"
+            style={btnSecondary}
+          >
+            Request a Demo
+          </a>
         </div>
       </section>
 
@@ -68,7 +73,12 @@ export default function Home() {
           <p style={{opacity:.9, marginTop:8}}>
             We’re onboarding a small group of contractors and professionals in BC. Pilot users get free access and direct influence on the roadmap.
           </p>
-          <a href="#contact" style={btnPrimary}>Apply for Pilot</a>
+          <a
+            href="mailto:support@permitwave.com?subject=Pilot%20Program%20Application&body=Hi%20Permitwave%20Team%2C%0A%0AI%27d%20like%20to%20join%20the%20pilot.%20Details%3A%0A-%20Name%3A%0A-%20Company%3A%0A-%20City%3A%0A-%20Permit%20type(s)%3A%0A-%20Expected%20volume%3A%0A%0AThanks!"
+            style={btnPrimary}
+          >
+            Apply for Pilot
+          </a>
         </div>
       </section>
 
@@ -77,7 +87,7 @@ export default function Home() {
         <h2 style={h2}>Contact / Request a Demo</h2>
         <p style={{opacity:.85, marginTop:0}}>Leave your details and we’ll get back within 24 hours.</p>
 
-        {/* Simple hosted form (replace with your endpoint later) */}
+        {/* If you don't have Formspree yet, the email link below covers it. */}
         <form action="https://formspree.io/f/xdknqxyz" method="POST" style={{display:"grid", gap:12}}>
           <input className="input" name="name" placeholder="Full name" required />
           <input className="input" name="email" type="email" placeholder="Work email" required />
@@ -85,6 +95,14 @@ export default function Home() {
           <textarea className="input" name="message" placeholder="Tell us about your project or permitting needs…" rows={5} />
           <button className="btn" type="submit">Send</button>
         </form>
+
+        <p style={{marginTop:12}}>
+          Prefer email? Write to{" "}
+          <a href="mailto:support@permitwave.com?subject=Contact%20from%20website"
+             style={{textDecoration:"underline", color:"#93c5fd"}}>
+            support@permitwave.com
+          </a>
+        </p>
 
         <p style={{opacity:.7, fontSize:13, marginTop:8}}>
           By submitting this form, you agree to be contacted about Permitwave. You can opt out anytime.
