@@ -88,13 +88,27 @@ export default function Home() {
         <p style={{opacity:.85, marginTop:0}}>Leave your details and we’ll get back within 24 hours.</p>
 
         {/* If you don't have Formspree yet, the email link below covers it. */}
-        <form action="https://formspree.io/f/mqayvjda" method="POST" style={{display:"grid", gap:12}}>
-          <input className="input" name="name" placeholder="Full name" required />
-          <input className="input" name="email" type="email" placeholder="Work email" required />
-          <input className="input" name="phone" placeholder="Phone (optional)" />
-          <textarea className="input" name="message" placeholder="Tell us about your project or permitting needs…" rows={5} />
-          <button className="btn" type="submit">Send</button>
-        </form>
+        <form
+  action="https://formspree.io/f/mqayvjda"
+  method="POST"
+  style={{ display: "grid", gap: 12 }}
+>
+  {/* بعد از ارسال برو به صفحه‌ی خودت تا لوگوی Formspree دیده نشود */}
+  <input type="hidden" name="_redirect" value="/thank-you" />
+
+  {/* موضوع ایمیل (اختیاری) */}
+  <input type="hidden" name="_subject" value="Permitwave — New contact/demo request" />
+
+  {/* هانی‌پات ضد ربات (اختیاری) */}
+  <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
+  <input className="input" name="name" type="text" placeholder="Full name" required />
+  <input className="input" name="email" type="email" placeholder="Work email" required />
+  <input className="input" name="phone" type="tel" placeholder="Phone (optional)" />
+  <textarea className="input" name="message" placeholder="Tell us about your project or permitting needs…" rows={5} />
+  <button className="btn" type="submit">Send</button>
+</form>
+
 
         <p style={{marginTop:12}}>
           Prefer email? Write to{" "}
