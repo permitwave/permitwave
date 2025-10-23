@@ -1,18 +1,18 @@
+// src/app/thank-you/page.tsx  یا app/thank-you/page.tsx
+import Link from "next/link";
+
 export default function ThankYou() {
   return (
-    <main style={{ fontFamily: "ui-sans-serif,system-ui", color: "#e2e8f0", background: "#0a0f1c" }}>
-      <section style={{ maxWidth: 760, margin: "0 auto", padding: "80px 20px", textAlign: "center" }}>
-        <h1 style={{ fontSize: 36, margin: 0 }}>✅ Thanks — we got your message!</h1>
-        <p style={{ opacity: .9, marginTop: 12 }}>
-          Our team will reach out within 24 hours. If it’s urgent, email{" "}
-          <a href="mailto:support@permitwave.com" style={{ color: "#93c5fd", textDecoration: "underline" }}>
-            support@permitwave.com
-          </a>.
-        </p>
-        <p style={{ marginTop: 24 }}>
-          <a href="/" style={{ color: "#93c5fd", textDecoration: "underline" }}>← Back to home</a>
-        </p>
-      </section>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-white text-slate-900 p-8">
+      <h1 className="text-3xl font-bold">Thank you!</h1>
+      <p className="mt-4 text-slate-600">We received your submission.</p>
+
+      <Link
+        href="/"
+        className="mt-8 inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
+      >
+        Back to home
+      </Link>
     </main>
   );
 }
