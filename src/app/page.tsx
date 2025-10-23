@@ -1,20 +1,12 @@
-// ==============================
-// PermitWave – Landing Page (Next.js / App Router)
-// Copy each block to its own file as indicated by the path header.
-// I included build-version + fixed CTAs + working /apply and /request pages
-// + cache headers to avoid seeing the old version.
-// ==============================
-
-// ┌────────────────────────────────────────────────────┐
-// │ File: app/page.tsx                                 │
-// └────────────────────────────────────────────────────┘
 export default function Page() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
-          <p className="text-sm font-medium tracking-wide uppercase text-slate-500">The permit layer Canada has been missing.</p>
+          <p className="text-sm font-medium tracking-wide uppercase text-slate-500">
+            The permit layer Canada has been missing.
+          </p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
             Canada’s First AI-Powered Construction Permit Infrastructure and Operating System
           </h1>
@@ -23,7 +15,7 @@ export default function Page() {
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            {/* ✅ FIX: Link to a real page instead of an anchor */}
+            {/* لینک واقعی به صفحه درخواست */}
             <a
               href="/request"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
@@ -38,14 +30,22 @@ export default function Page() {
       {/* PROBLEM */}
       <section className="border-t border-slate-100 bg-slate-50">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Permitting in Canada Is Fragmented, Slow, and Unpredictable</h2>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            Permitting in Canada Is Fragmented, Slow, and Unpredictable
+          </h2>
           <p className="mt-4 max-w-3xl text-slate-700">
             Each municipality has its own rules, forms, and approval logic — with no unified infrastructure. Contractors are forced to
             navigate inconsistent requirements, unclear documentation, and manual workflows that waste time and create bottlenecks.
           </p>
 
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {["Every city = a different process","No standardization or visibility","Rejections caused by guesswork","Lost billable hours","Homeowners left confused and dependent"].map((item) => (
+            {[
+              "Every city = a different process",
+              "No standardization or visibility",
+              "Rejections caused by guesswork",
+              "Lost billable hours",
+              "Homeowners left confused and dependent",
+            ].map((item) => (
               <li key={item} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-900/5">
                 <span className="mt-1 h-2 w-2 rounded-full bg-slate-900"></span>
                 <span className="text-slate-700">{item}</span>
@@ -53,17 +53,22 @@ export default function Page() {
             ))}
           </ul>
 
-          <p className="mt-6 text-slate-700">Permits are not a building issue — they are a <span className="font-semibold">process</span> issue.</p>
+          <p className="mt-6 text-slate-700">
+            Permits are not a building issue — they are a <span className="font-semibold">process</span> issue.
+          </p>
         </div>
       </section>
 
       {/* SOLUTION */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">From Manual Obstacle to Intelligent, Automated Workflow</h2>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+            From Manual Obstacle to Intelligent, Automated Workflow
+          </h2>
           <p className="mt-4 max-w-3xl text-slate-700">
-            PermitWave guides, interprets, and prepares permit applications end‑to‑end — not as a consultant, but as a
-            <span className="font-semibold"> digital operating layer</span> that executes the process on behalf of the contractor. Instead of outsourcing confusion, PermitWave eliminates it.
+            PermitWave guides, interprets, and prepares permit applications end-to-end — not as a consultant, but as a
+            <span className="font-semibold"> digital operating layer</span> that executes the process on behalf of the contractor.
+            Instead of outsourcing confusion, PermitWave eliminates it.
           </p>
         </div>
       </section>
@@ -74,10 +79,10 @@ export default function Page() {
           <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">How It Works</h3>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              {title: "Describe the Project", body: "Input scope, address, and basic details. We infer municipal context automatically."},
-              {title: "Get the Requirements", body: "AI interprets local rules and builds a tailored checklist and forms."},
-              {title: "Auto‑Build the Package", body: "We standardize documents and validate pre‑submission to prevent rejections."},
-              {title: "Submit & Track", body: "Sync the workflow with the municipality and reduce delay cycles."},
+              { title: "Describe the Project", body: "Input scope, address, and basic details. We infer municipal context automatically." },
+              { title: "Get the Requirements", body: "AI interprets local rules and builds a tailored checklist and forms." },
+              { title: "Auto-Build the Package", body: "We standardize documents and validate pre-submission to prevent rejections." },
+              { title: "Submit & Track", body: "Sync the workflow with the municipality and reduce delay cycles." },
             ].map((card) => (
               <div key={card.title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-900/5">
                 <h4 className="text-base font-semibold">{card.title}</h4>
@@ -103,7 +108,14 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">Infrastructure, Not Paperwork</h3>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {["Standardizes documentation","Builds compliant packages automatically","Validates before submission","Synchronizes workflow steps","Reduces delay cycles with municipalities","Makes permitting repeatable and predictable"].map((item) => (
+            {[
+              "Standardizes documentation",
+              "Builds compliant packages automatically",
+              "Validates before submission",
+              "Synchronizes workflow steps",
+              "Reduces delay cycles with municipalities",
+              "Makes permitting repeatable and predictable",
+            ].map((item) => (
               <div key={item} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-900/5">
                 <p className="text-sm leading-6 text-slate-700">{item}</p>
               </div>
@@ -118,9 +130,9 @@ export default function Page() {
           <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">Defensibility: Triple Moat</h3>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              {title: "Tech Moat", body: "AI + execution automation — far beyond UI or form-fillers."},
-              {title: "Data Moat", body: "Evolving municipal rule logic and case knowledge that compounds."},
-              {title: "Network Moat", body: "Contractor adoption locks in demand; switching becomes unlikely."},
+              { title: "Tech Moat", body: "AI + execution automation — far beyond UI or form-fillers." },
+              { title: "Data Moat", body: "Evolving municipal rule logic and case knowledge that compounds." },
+              { title: "Network Moat", body: "Contractor adoption locks in demand; switching becomes unlikely." },
             ].map((m) => (
               <div key={m.title} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-900/5">
                 <h4 className="text-base font-semibold">{m.title}</h4>
@@ -138,7 +150,7 @@ export default function Page() {
           <ol className="mt-6 list-decimal pl-6 text-slate-700 space-y-2">
             <li><span className="font-medium">BC First (Residential):</span> capture demand and learn deeply at the municipal level.</li>
             <li><span className="font-medium">Canada Next:</span> standardize multi-city rule logic and compound the data moat.</li>
-            <li><span className="font-medium">Commercial Future:</span> extend workflows for high‑value projects.</li>
+            <li><span className="font-medium">Commercial Future:</span> extend workflows for high-value projects.</li>
           </ol>
         </div>
       </section>
@@ -147,7 +159,6 @@ export default function Page() {
       <section id="request">
         <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
           <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            {/* ✅ FIX: Link to a real page instead of a dead anchor */}
             <a
               href="/apply"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-sm ring-1 ring-slate-900/10 hover:shadow-md transition"
@@ -159,11 +170,10 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SIMPLE FOOTER */}
+      {/* FOOTER */}
       <footer className="border-t border-slate-100">
         <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-500">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            {/* 🔢 Build version helper (set NEXT_PUBLIC_BUILD in Cloudflare Pages) */}
             <p>© {new Date().getFullYear()} PermitWave — v{process.env.NEXT_PUBLIC_BUILD ?? "local"}</p>
             <div className="flex gap-4">
               <a href="/apply" className="hover:underline">Pilot Access</a>
@@ -176,51 +186,3 @@ export default function Page() {
     </main>
   );
 }
-
-// ┌────────────────────────────────────────────────────┐
-// │ File: app/apply/page.tsx                           │
-// └────────────────────────────────────────────────────┘
-export function Apply() {
-  return (
-    <main className="min-h-screen bg-white text-slate-900 p-8">
-      <h1 className="text-3xl font-bold">Apply for Pilot Access</h1>
-      <p className="mt-2 text-slate-600">Early contractors in BC are prioritized.</p>
-      <form className="mt-8 max-w-md space-y-4" action="https://formspree.io/f/XXXXXXX" method="POST">
-        <input name="name" placeholder="Full name" className="w-full rounded border p-3" required />
-        <input name="email" type="email" placeholder="Work email" className="w-full rounded border p-3" required />
-        <input name="company" placeholder="Company (optional)" className="w-full rounded border p-3" />
-        <textarea name="project" placeholder="Project details" className="w-full rounded border p-3 h-28" />
-        <button className="rounded-2xl px-6 py-3 font-semibold shadow ring-1 ring-slate-900/10">Submit</button>
-      </form>
-    </main>
-  );
-}
-
-// ┌────────────────────────────────────────────────────┐
-// │ File: app/request/page.tsx                         │
-// └────────────────────────────────────────────────────┘
-export function Request() {
-  return (
-    <main className="min-h-screen bg-white text-slate-900 p-8">
-      <h1 className="text-3xl font-bold">Request Early Access</h1>
-      <p className="mt-2 text-slate-600">We’re onboarding contractors in BC first.</p>
-      <form className="mt-8 max-w-md space-y-4" action="https://formspree.io/f/XXXXXXX" method="POST">
-        <input name="name" placeholder="Full name" className="w-full rounded border p-3" required />
-        <input name="email" type="email" placeholder="Work email" className="w-full rounded border p-3" required />
-        <input name="phone" placeholder="Phone (optional)" className="w-full rounded border p-3" />
-        <textarea name="notes" placeholder="What are you building?" className="w-full rounded border p-3 h-28" />
-        <button className="rounded-2xl px-6 py-3 font-semibold shadow ring-1 ring-slate-900/10">Submit</button>
-      </form>
-    </main>
-  );
-}
-
-// ┌────────────────────────────────────────────────────┐
-// │ File: _headers (in project root)                   │
-// └────────────────────────────────────────────────────┘
-// Prevent stale HTML from being cached; cache only static assets.
-/*
-  Cache-Control: no-store
-
-/_next/static/*
-  Cache-Control: public, max-age=31536000, immutable
