@@ -88,7 +88,7 @@ export default function Home() {
         <p style={{opacity:.85, marginTop:0}}>Leave your details and we’ll get back within 24 hours.</p>
 
         {/* If you don't have Formspree yet, the email link below covers it. */}
-        <form action="https://formspree.io/f/xdknqxyz" method="POST" style={{display:"grid", gap:12}}>
+        <form action="https://formspree.io/f/mqayvjda" method="POST" style={{display:"grid", gap:12}}>
           <input className="input" name="name" placeholder="Full name" required />
           <input className="input" name="email" type="email" placeholder="Work email" required />
           <input className="input" name="phone" placeholder="Phone (optional)" />
