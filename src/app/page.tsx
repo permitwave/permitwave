@@ -1,88 +1,127 @@
-import Image from "next/image";
+// app/page.tsx
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main style={{fontFamily:"ui-sans-serif,system-ui", color:"#e2e8f0", background:"#0a0f1c"}}>
+      {/* Hero */}
+      <section style={{maxWidth:980, margin:"0 auto", padding:"80px 20px 56px", textAlign:"center"}}>
+        <h1 style={{fontSize:44, lineHeight:1.15, margin:"0 0 16px"}}>
+          Streamlined Building Permit Management — All in One Place
+        </h1>
+        <p style={{opacity:.9, fontSize:18, margin:"0 0 24px"}}>
+          Upload required documents, track status, and submit permit applications to your municipality — without paperwork chaos.
+        </p>
+        <div style={{display:"flex", gap:12, justifyContent:"center", flexWrap:"wrap"}}>
+          <Link href="/dashboard" style={btnPrimary}>Open Dashboard (Preview)</Link>
+          <a href="#contact" style={btnSecondary}>Request a Demo</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Value strip */}
+      <section style={{borderTop:"1px solid #132036", borderBottom:"1px solid #132036", background:"#0f172a"}}>
+        <div style={{maxWidth:980, margin:"0 auto", padding:"12px 20px", textAlign:"center", opacity:.8, fontSize:14}}>
+          Building • Electrical • Plumbing • HVAC • Signage
+        </div>
+      </section>
+
+      {/* Features */}
+      <section style={{maxWidth:1040, margin:"0 auto", padding:"48px 20px"}}>
+        <h2 style={h2}>Why Permitwave?</h2>
+        <div style={grid}>
+          <Card title="Smart Document Checklist">
+            Automatically generates requirements by permit type and municipality.
+          </Card>
+          <Card title="Centralized File Storage">
+            Upload drawings, reports, revisions, and approvals — organized and searchable.
+          </Card>
+          <Card title="Live Status Tracking">
+            Draft, Submitted, Under Review, Approved — always know where you stand.
+          </Card>
+          <Card title="Team Collaboration">
+            Share secure access with contractors, engineers, and homeowners.
+          </Card>
+          <Card title="Municipal Integrations (Soon)">
+            Send and manage submissions directly to cities.
+          </Card>
+          <Card title="Analytics & History">
+            KPIs, timelines, and full audit history across projects.
+          </Card>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section style={{maxWidth:1040, margin:"0 auto", padding:"8px 20px 48px"}}>
+        <h2 style={h2}>How It Works</h2>
+        <ol style={{lineHeight:1.8, opacity:.9, margin:0, paddingLeft:18}}>
+          <li>Create a project and select jurisdiction</li>
+          <li>Upload required documents via the smart checklist</li>
+          <li>Submit to the city (manual for now — automated later)</li>
+          <li>Track reviews, upload revisions, and receive approvals</li>
+        </ol>
+      </section>
+
+      {/* Pilot CTA */}
+      <section style={{maxWidth:1040, margin:"0 auto", padding:"32px 20px"}}>
+        <div style={{border:"1px solid #1f2a44", background:"#0b1220", borderRadius:12, padding:24, textAlign:"center"}}>
+          <h3 style={{marginTop:0, fontSize:22}}>Join the Pilot (Early Access)</h3>
+          <p style={{opacity:.9, marginTop:8}}>
+            We’re onboarding a small group of contractors and professionals in BC. Pilot users get free access and direct influence on the roadmap.
+          </p>
+          <a href="#contact" style={btnPrimary}>Apply for Pilot</a>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" style={{maxWidth:760, margin:"0 auto", padding:"48px 20px"}}>
+        <h2 style={h2}>Contact / Request a Demo</h2>
+        <p style={{opacity:.85, marginTop:0}}>Leave your details and we’ll get back within 24 hours.</p>
+
+        {/* Simple hosted form (replace with your endpoint later) */}
+        <form action="https://formspree.io/f/xdknqxyz" method="POST" style={{display:"grid", gap:12}}>
+          <input className="input" name="name" placeholder="Full name" required />
+          <input className="input" name="email" type="email" placeholder="Work email" required />
+          <input className="input" name="phone" placeholder="Phone (optional)" />
+          <textarea className="input" name="message" placeholder="Tell us about your project or permitting needs…" rows={5} />
+          <button className="btn" type="submit">Send</button>
+        </form>
+
+        <p style={{opacity:.7, fontSize:13, marginTop:8}}>
+          By submitting this form, you agree to be contacted about Permitwave. You can opt out anytime.
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer style={{borderTop:"1px solid #132036", padding:"18px 20px", textAlign:"center", opacity:.7}}>
+        © {new Date().getFullYear()} Permitwave — Beta
       </footer>
+    </main>
+  );
+}
+
+const h2: React.CSSProperties = { fontSize:28, margin:"0 0 16px" };
+
+const btnPrimary: React.CSSProperties = {
+  background:"#2563eb", color:"#fff", padding:"10px 14px",
+  borderRadius:8, border:"1px solid #1d4ed8"
+};
+
+const btnSecondary: React.CSSProperties = {
+  background:"#0f172a", color:"#e2e8f0", padding:"10px 14px",
+  borderRadius:8, border:"1px solid #1e293b"
+};
+
+const grid: React.CSSProperties = {
+  display:"grid",
+  gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))",
+  gap:12
+};
+
+function Card({title, children}:{title:string, children:React.ReactNode}) {
+  return (
+    <div style={{border:"1px solid #1f2a44", background:"#0b1220", padding:16, borderRadius:12}}>
+      <div style={{fontWeight:600, marginBottom:6}}>{title}</div>
+      <div style={{opacity:.9}}>{children}</div>
     </div>
   );
 }
