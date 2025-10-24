@@ -6,7 +6,7 @@ export default function Request() {
 
       <form
         className="mt-8 max-w-md space-y-4"
-        action="https://formspree.io/f/XXXXXXX"  // ← Formspree ID خودت
+        action="https://formspree.io/f/mqayvjda"  // ← Formspree ID خودت
         method="POST"
       >
         <input name="name" placeholder="Full name" className="w-full rounded border p-3" required />
